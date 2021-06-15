@@ -9,7 +9,7 @@ import { ReactComponent as Search } from './assets/icons/ic_search_black_24px.sv
 import { ReactComponent as Select } from './assets/icons/ic_select_black_24px.svg';
 import './App.css';
 
-const App = () => {
+const App = ({ fileUrl = '/files/pdftron_about.pdf' }) => {
   const viewer = useRef(null);
   const scrollView = useRef(null);
   const searchTerm = useRef(null);
@@ -31,7 +31,7 @@ const App = () => {
     docViewer.setScrollViewElement(scrollView.current);
     docViewer.setViewerElement(viewer.current);
     docViewer.setOptions({ enableAnnotations: true });
-    docViewer.loadDocument('/files/pdftron_about.pdf');
+    docViewer.loadDocument(fileUrl);
 
     setDocViewer(docViewer);
 
@@ -40,7 +40,7 @@ const App = () => {
       docViewer.setToolMode(docViewer.getTool('AnnotationEdit'));
       setAnnotManager(docViewer.getAnnotationManager());
     });
-  }, []);
+  }, [fileUrl]);
 
   const zoomOut = () => {
     docViewer.zoomTo(docViewer.getZoom() - 0.25);
