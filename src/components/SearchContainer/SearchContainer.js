@@ -78,6 +78,7 @@ const SearchContainer = (props) => {
     docViewer.textSearchInit(textToSearch, mode, {
       fullSearch,
       onResult: result => {
+        console.log(111);
         setSearchResults(prevState => [...prevState, result]);
         const {
           resultCode,
@@ -114,6 +115,15 @@ const SearchContainer = (props) => {
         }
       }
     });
+
+    setTimeout(() => {
+      docViewer.textSearchInit('po', mode, {
+        fullSearch,
+        onResult: result => {
+          console.log(222);
+        }
+      });
+    }, 100)
   };
 
   /**
