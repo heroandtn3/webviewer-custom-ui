@@ -5,7 +5,7 @@
 
 .App {
   width: 100%;
-  height: 100%;
+  height: 1000px; /* this causes scrollbar on html element */
   display: flex;
   flex-direction: row;
   overflow: hidden;
@@ -46,6 +46,8 @@
   flex-direction: row;
   justify-content: center;
   background-color: var(--tools-header-background);
+  height: 150px;
+  align-items: flex-end;
 }
 
 #tools button {
