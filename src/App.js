@@ -33,6 +33,8 @@ const App = () => {
     docViewer.setOptions({ enableAnnotations: true });
     docViewer.loadDocument('/files/pdftron_about.pdf');
 
+    window.docViewer = docViewer
+
     setDocViewer(docViewer);
 
     docViewer.on('documentLoaded', () => {
